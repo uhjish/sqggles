@@ -1,0 +1,9 @@
+.*
+!.env*
+!.ssh
+
+Dockerfile
+docker-compose*.yml
+README.rst
+tests/
+tox.ini

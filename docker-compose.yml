@@ -1,0 +1,23 @@
+# Painless development and deployment with Docker.
+# Visit the docs at https://docs.docker.com/compose/
+
+version: "2"
+
+volumes:
+  database_data: {}
+
+services:
+  webserver:
+    build: ./config/webserver
+    ports:
+      - "80:80"
+    volumes_from:
+      - application
+    depends_on:
+      - application
+
+  application:
+    build:
+      context: .
+      dockerfile: ./config/application/Dockerfile
+    user: application
